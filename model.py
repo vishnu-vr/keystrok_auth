@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 
 data = pd.read_csv('cleaned.csv')
 
@@ -29,6 +30,8 @@ X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=
 # clf = DecisionTreeClassifier()
 # forest
 clf = RandomForestClassifier(verbose=2,n_jobs=-1)
+# # LogisticRegression
+# clf = LogisticRegression()
 
 clf.fit(X_train,y_train)
 

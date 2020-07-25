@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 
 data = pd.read_csv('cleaned.csv')
 
@@ -28,10 +29,12 @@ X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=
 # clf = SVC(kernel = 'linear')
 # # tree
 # clf = DecisionTreeClassifier()
-# forest
-clf = RandomForestClassifier(verbose=2,n_jobs=-1)
+# # forest
+# clf = RandomForestClassifier(verbose=2,n_jobs=-1)
 # # LogisticRegression
 # clf = LogisticRegression()
+# naivebayes
+clf = GaussianNB()
 
 clf.fit(X_train,y_train)
 

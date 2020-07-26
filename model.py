@@ -16,15 +16,10 @@ features = np.array(data.drop('Label',axis=1))
 
 labels = np.array(data['Label'])
 
-# # without train-test split
-# clf = SVC(kernel = 'linear')
-# clf.fit(features,labels)
-
-# print(classification_report(labels,clf.predict(features)))
-
 # # with train-test split
 X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.33, random_state=42, stratify=labels)
 
+# various classifiers
 # # svm
 # clf = SVC(kernel = 'linear')
 # # tree
@@ -33,13 +28,16 @@ X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=
 # clf = RandomForestClassifier(verbose=2,n_jobs=-1)
 # # LogisticRegression
 # clf = LogisticRegression()
-# naivebayes
-clf = GaussianNB()
+# # naivebayes
+# clf = GaussianNB()
 
-clf.fit(X_train,y_train)
+# fitting the model
+# clf.fit(X_train,y_train)
 
 print(classification_report(y_test,clf.predict(X_test)))
 
+
+# hyperparameter tuning if need be
 # # cross-validation and hyperparameter tuning
 # pip_clf = Pipeline([
 #     ('clf', SVC(kernel = 'linear'))
